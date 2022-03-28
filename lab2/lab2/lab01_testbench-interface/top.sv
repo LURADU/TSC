@@ -3,7 +3,7 @@
  **********************************************************************/
 
 module top;
-  //timeunit 1ns/1ns;
+ 
 
   // user-defined types are defined in instr_register_pkg.sv
   import instr_register_pkg::*;
@@ -13,7 +13,7 @@ module top;
   logic test_clk;
 
   // interconnecting signals
-  tb_ifc lab2if();
+  tb_ifc lab2if(.clk(clk));
   //logic          load_en;
   //logic          reset_n;
   //opcode_t       opcode;
