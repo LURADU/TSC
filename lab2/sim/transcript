@@ -17,85 +17,16 @@
 # -- Importing package instr_register_pkg
 # -- Compiling interface tb_ifc
 # -- Compiling module instr_register_test
+# ** Error: ../lab2/lab01_testbench-interface/instr_register_test.sv(59): Undefined variable: random.
+# ** Error: ../lab2/lab01_testbench-interface/instr_register_test.sv(59): near "unsigned": syntax error, unexpected "unsigned", expecting ';'
 # -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# vsim +notimingchecks +nowarnTSCALE -sva -nocoverage -quiet -novopt top 
-# Refreshing C:\Users\radul\OneDrive\Desktop\tsc\lab2\sim\work.instr_register_pkg
-# Refreshing C:\Users\radul\OneDrive\Desktop\tsc\lab2\sim\work.top
-# Refreshing C:\Users\radul\OneDrive\Desktop\tsc\lab2\sim\work.tb_ifc
-# Refreshing C:\Users\radul\OneDrive\Desktop\tsc\lab2\sim\work.instr_register_test
-# Refreshing C:\Users\radul\OneDrive\Desktop\tsc\lab2\sim\work.instr_register
-# ** Warning: (vsim-8441) ../lab2/lab01_testbench-interface/instr_register_test.sv(82): Clocking block output lab2if.cb.opcode is not legal in this
-# or another expression.
-#         Region: /top/test
-# ** Warning: (vsim-8441) ../lab2/lab01_testbench-interface/instr_register_test.sv(80): Clocking block output lab2if.cb.operand_a is not legal in this
-# or another expression.
-#         Region: /top/test
-# ** Warning: (vsim-8441) ../lab2/lab01_testbench-interface/instr_register_test.sv(81): Clocking block output lab2if.cb.operand_b is not legal in this
-# or another expression.
-#         Region: /top/test
-# ** Warning: (vsim-8441) ../lab2/lab01_testbench-interface/instr_register_test.sv(38): Clocking block output lab2if.cb.read_pointer is not legal in this
-# or another expression.
-#         Region: /top/test
-# ** Warning: (vsim-8441) ../lab2/lab01_testbench-interface/instr_register_test.sv(37): Clocking block output lab2if.cb.write_pointer is not legal in this
-# or another expression.
-#         Region: /top/test
-# 
-# 
-# ***********************************************************
-# ***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***
-# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
-# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
-# ***********************************************************
-# 
-# Reseting the instruction register...
-# 
-# Writing values to register stack...
-# Writing to register location 0: 
-#   opcode = 1 (PASSA)
-#   operand_a = -12
-#   operand_b = 4
-# 
-# Writing to register location 1: 
-#   opcode = 3 (ADD)
-#   operand_a = -9
-#   operand_b = 9
-# 
-# Writing to register location 2: 
-#   opcode = 5 (MULT)
-#   operand_a = -15
-#   operand_b = 13
-# 
-# 
-# Reading back the same register locations written...
-# Read from register location 0: 
-#   opcode = 1 (PASSA)
-#   operand_a = -12
-#   operand_b = 4
-# 
-# Read from register location 1: 
-#   opcode = 3 (ADD)
-#   operand_a = -9
-#   operand_b = 9
-# 
-# Read from register location 2: 
-#   opcode = 5 (MULT)
-#   operand_a = -15
-#   operand_b = 13
-# 
-# 
-# ***********************************************************
-# ***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***
-# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
-# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
-# ***********************************************************
-# 
-# ** Note: $finish    : ../lab2/lab01_testbench-interface/instr_register_test.sv(68)
-#    Time: 165 ns  Iteration: 2  Instance: /top/test
-# 1
-# Break in Module instr_register_test at ../lab2/lab01_testbench-interface/instr_register_test.sv line 68
-# Simulation Breakpoint: 1
-# Break in Module instr_register_test at ../lab2/lab01_testbench-interface/instr_register_test.sv line 68
-# MACRO ./run.do PAUSED at line 45
+# ** Error: C:/modelsim_6.6d/win32/vlog failed.
+# Error in macro ./run.do line 20
+# C:/modelsim_6.6d/win32/vlog failed.
+#     while executing
+# "vlog -sv -timescale "1ns/1ns" -work work       -f sources.txt"
+#     invoked from within
+# "if {$compile_on || [batch_mode] == 0} {
+#   vlib work
+#   vlog -sv -timescale "1ns/1ns" -work work       -f sources.txt
+# }"

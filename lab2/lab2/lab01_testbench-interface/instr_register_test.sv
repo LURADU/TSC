@@ -24,17 +24,18 @@ module instr_register_test
 
   //timeunit 1ns/1ns;
 
-  int seed = 555;
+  int seed = 555;//variabida de tip seed
 
-  initial begin
+  initial begin //initializaeza un block temporar cu timp de simulare 0
     $display("\n\n***********************************************************");
     $display(    "***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
     $display(    "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
     $display(    "***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***");
     $display(    "***********************************************************");
+    $display("Firs display");
 
     $display("\nReseting the instruction register...");
-    lab2if.cb.write_pointer  <= 5'h00;         // initialize write pointer
+    lab2if.cb.write_pointer  <= 5'h00;         // initialize write pointer 5biti in hexa  00
     lab2if.cb.read_pointer   <= 5'h1F;         // initialize read pointer
     lab2if.cb.load_en        <= 1'b0;          // initialize load control line
     lab2if.cb.reset_n       <= 1'b0;          // assert reset_n (active low)
@@ -43,7 +44,7 @@ module instr_register_test
 
     $display("\nWriting values to register stack...");
     @(posedge lab2if.cb) lab2if.cb.load_en <= 1'b1;  // enable writing to register
-    repeat (3) begin
+    repeat (10) begin
       @(posedge lab2if.cb) randomize_transaction;
       @(negedge lab2if.cb) print_transaction;
     end
@@ -51,11 +52,11 @@ module instr_register_test
 
     // read back and display same three register locations
     $display("\nReading back the same register locations written...");
-    for (int i=0; i<=2; i++) begin
+    for (int i=0; i<=9; i++) begin
       // later labs will replace this loop with iterating through a
       // scoreboard to determine which addresses were written and
       // the expected values to be read back
-      @(posedge lab2if.cb) lab2if.cb.read_pointer <= i;
+      @(posedge lab2if.cb) lab2if.cb.read_pointer <= $unsigned($random)%10;
       @(negedge lab2if.cb) print_results;
     end
 
@@ -98,3 +99,5 @@ module instr_register_test
   endfunction: print_results
 
 endmodule: instr_register_test
+
+

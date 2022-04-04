@@ -15,7 +15,7 @@ interface tb_ifc (input logic clk);
   instruction_t  instruction_word;
   // ADD CODE TO DECLARE THE INTERFACE SIGNALS
  
- clocking cb @(posedge clk);
+ clocking cb @(clk);
   output load_en;
   output operand_a;
   output operand_b;
