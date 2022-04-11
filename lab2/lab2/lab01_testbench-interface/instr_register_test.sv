@@ -21,12 +21,22 @@ module instr_register_test
    //input  instruction_t  instruction_word
 
   );
+  
+
 
   //timeunit 1ns/1ns;
+  class frist_test;
+  virtual tb_ifc.TEST lab2if;
 
+  function new( virtual tb_ifc.TEST lab2if);
+  this.lab2if=lab2if;
+  endfunction
+  
   int seed = 555;//variabida de tip seed
+  task run();
+   
 
-  initial begin //initializaeza un block temporar cu timp de simulare 0
+  //initial begin //initializaeza un block temporar cu timp de simulare 0
     $display("\n\n***********************************************************");
     $display(    "***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
     $display(    "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
@@ -67,8 +77,8 @@ module instr_register_test
     $display(  "***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***");
     $display(  "***********************************************************\n");
     $finish;
-  end
-
+  //end
+  endtask
   function void randomize_transaction;
     // A later lab will replace this function with SystemVerilog
     // constrained random values
@@ -96,7 +106,21 @@ module instr_register_test
     $display("  opcode = %0d (%s)", lab2if.cb.instruction_word.opc, lab2if.cb.instruction_word.opc.name);
     $display("  operand_a = %0d",   lab2if.cb.instruction_word.op_a);
     $display("  operand_b = %0d\n", lab2if.cb.instruction_word.op_b);
+    $display("  result    = %0d\n", lab2if.cb.instruction_word.res);
   endfunction: print_results
+  
+  endclass
+
+
+
+  initial begin
+  frist_test fst;
+  fst=new(lab2if);
+  //fst.lab2if =lab2if;
+  fst.run();
+  end
+
+
 
 endmodule: instr_register_test
 
